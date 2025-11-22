@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><title>WebView2 Samples</title></head><body>
+
+<center>
+<h1>New Window Sample</h1>
+<button id="sendButton" onclick="wnd_();">Open</button><br><br>
+<div id="messages"></div><br><br>
+<center>
+
+<script>
+
+	document.getElementById('messages').innerHTML = Date.now();
+
+	function wnd_() {
+		window.open(document.URL, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+	}
+
+</script>
+
+</body></html>

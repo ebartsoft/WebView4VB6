@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head><title>WebView2 Samples</title></head><body>
+
+<center>
+<h1>Dialogs Sample</h1>
+<button id="sendButton" onclick="alert_('hello');">alert('hello')</button><br><br>
+<button id="sendButton" onclick="confirm_('hello');">confirm('hello')</button><br><br>
+<button id="sendButton" onclick="prompt_('hello');">prompt('hello')</button><br><br>
+<button id="sendButton" onclick="window.location.href='about:blank';">beforeunload</button><br><br>
+<div id="messages"></div><br><br>
+<center>
+
+<script>
+
+	function alert_(e) {
+		document.getElementById('messages').innerHTML = alert(e);
+	}
+
+	function confirm_(e) {
+		document.getElementById('messages').innerHTML = confirm(e);
+	}
+
+	function prompt_(e) {
+		document.getElementById('messages').innerHTML = prompt(e);
+	}
+		
+	window.addEventListener("beforeunload", function (event) {
+		event.returnValue = "\\o/";
+	});
+
+</script>
+
+</body></html>

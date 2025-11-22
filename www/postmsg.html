@@ -1,0 +1,35 @@
+<!DOCTYPE html><html><head><title>WebView2 Samples</title></head><body>
+
+<center>
+<h1>Post Message Sample</h1>
+<input type="text" id="messageInput" placeholder="Type a message..." value="Hello"/>
+<button id="sendButton" onclick="postmsg();">Send</button><br><br>
+<div id="messages"></div><br><br>
+</center>
+
+<script>
+
+	if (window.chrome.webview === undefined) {
+		document.getElementById('messages').innerHTML = "window.chrome.webview unsupported"
+	} else {
+		window.chrome.webview.addEventListener('message', onaddmsg)
+		//window.chrome.webview.removeEventListener('message', onaddmsg)
+	}
+
+	function onaddmsg (e) {
+		const m = document.getElementById('messages');
+		if ((typeof e.data === 'object') && (e.data !== null)) {
+			m.innerHTML = "(Object) " + e.data.msg;
+		} else {
+			m.innerHTML = "(String) " + e.data;
+		}
+	}
+
+	function postmsg () {
+		const m = document.getElementById('messageInput').value
+		window.chrome.webview.postMessage(m);
+	}
+
+</script>
+	
+</body></html>

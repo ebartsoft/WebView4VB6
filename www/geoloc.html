@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head><title>WebView2 Samples</title></head>
+
+<body>
+   <button id="display">Display Location</button>
+   <div id="message"></div>
+</body>
+
+<script>
+   const btn = document.getElementById('display');
+
+   btn.addEventListener('click', function () {
+      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+   });
+
+   function onSuccess(position) {
+      const {latitude, longitude} = position.coords;
+      message.textContent = `Your location: (${latitude},${longitude})`;
+   }
+
+   function onError() {
+      message.textContent = `Operation Failed`;
+   }
+   
+</script>
+</html>
