@@ -10,7 +10,7 @@ Anyone wanting to use a modern web view in Visual Basic 6 applications.
 
 # Supported Features
 
-- Openning a web page, displaying html content etc...
+- Opening a web page, displaying html content etc...
 - Calling Javascript function from Visual Basic
 - Calling Visual Basic function from Javascript
 - All ICoreWebView2 methods implemented
